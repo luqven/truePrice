@@ -13,6 +13,5 @@ Tool that tracks and saves the price history and trend for items your thinking o
 
 ## Use
 
-- Copy paste the URL or the name of the item you want to buy
-- Select it from the 3 options returned by the program
-- Receive current price trend & past price trends (if available)
+- Enter the name of the item you want to buy
+- Returns the average sold price for that item

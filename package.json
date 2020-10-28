@@ -1,7 +1,7 @@
 {
-  "name": "tPrice",
-  "version": "1.0.0",
-  "description": "online shopping price trend lookup tool",
+  "name": "truePrice",
+  "version": "0.1.0",
+  "description": "Ebay price trend lookup tool",
   "main": "index.js",
   "dependencies": {
     "agent-base": "^5.1.1",
@@ -58,11 +58,12 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.mjs"
   },
   "keywords": [
-    "wow",
-    "classic"
+    "ebay",
+    "scraping"
   ],
   "author": "luis ball",
   "license": "ISC"
