@@ -128,7 +128,7 @@ const fetchAveragePrice = (productName, verbose) => {
 
             // output `${item} was at ${lastSeenPrice}, is trending ${priceTrend}, over the last ${dateRange}`
         
-        return averagePrice;
+        return { listings: productListings, averagePrice};
     })();
 };
 
