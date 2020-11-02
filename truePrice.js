@@ -1,4 +1,3 @@
-const { filter } = require('minimatch');
 const puppeteer = require('puppeteer');
 const { filterOutliers } = require('./helpers');
 
