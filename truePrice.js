@@ -6,6 +6,17 @@ const { filterOutliers } = require('./helpers');
  * @param {*} productName , String placed into the ebay query url
  * @param {*} verbose , whether or not to log output to the console
  * 
+ * returns:
+ * 
+ * listingInfo = {
+ *  html: <String>,
+ *  image: <String>,
+ *  title: <String>,
+ *  link: <String>,
+ *  price: <String>,
+ *  date: <String>,
+ * };
+ * 
  */
 
 // given a product name, return it's average sold price
