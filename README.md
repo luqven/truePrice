@@ -6,12 +6,11 @@ Tool that tracks and saves the price history and trend for items your thinking o
 
 ## Dependencies
 
-- Puppeteer: scrapes the Blizzard page for the latest realm statuses
+- Puppeteer: scrapes the Ebay sold listings page for the latest items that match your query, returns list of matching sold items and their average sale price (excluding outliers)
 - Node.js
 - Yarn
-- EBay: scraped for listings that sold to determine current price trend and compare to last seen
 
 ## Use
 
 - Enter the name of the item you want to buy
-- Returns the average sold price for that item
+- Returns list of matching items and the average sold price for that item
