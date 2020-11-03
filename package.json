@@ -1,5 +1,5 @@
 {
-  "name": "truePrice",
+  "name": "true-price",
   "version": "0.1.0",
   "description": "Ebay price trend lookup tool",
   "main": "index.js",
