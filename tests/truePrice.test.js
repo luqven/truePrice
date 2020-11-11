@@ -6,26 +6,31 @@ const verbose = false;
 const localHtml = true
 const data = {};
 
+const options = {
+    productName: 'nintendo switch',
+    verbose: verbose,
+    filters: null,
+    localHtml: localHtml
+}
+
 describe('truePrice module', () => {
 
     test('returns the correct average price', () => {
-        return truePrice.fetchAveragePrice('nintendo switch', verbose, localHtml).then((res) => {
+        return truePrice.fetchAveragePrice(options).then((res) => {
             expect(res.averagePrice).toBe(266.97059999999993)
         })
     });
 
     test('returns the correct number of listings', () => {
-        return truePrice.fetchAveragePrice('nintendo switch', verbose, localHtml).then((res) => {
+        return truePrice.fetchAveragePrice(options).then((res) => {
             expect(Object.keys(res.listings).length).toBe(50)
         })
     });
 
-    // TODO: add tests for listing type
-
     describe('listings object', () => {
 
         test('returns the listings img src', () => {
-            return truePrice.fetchAveragePrice('nintendo switch', verbose, localHtml).then((res) => {
+            return truePrice.fetchAveragePrice(options).then((res) => {
                 const listingHaveImages = (listings) => {
                     let res = true;
                     listings.forEach((listing) => {
@@ -40,7 +45,7 @@ describe('truePrice module', () => {
         })
 
         test('returns the links to the original listings', () => {
-            return truePrice.fetchAveragePrice('nintendo switch', verbose, localHtml).then((res) => {
+            return truePrice.fetchAveragePrice(options).then((res) => {
                 const listingsHaveLinks = (listings) => {
                     let res = true;
                     listings.forEach((listing) => {
@@ -55,7 +60,7 @@ describe('truePrice module', () => {
         })
 
         test('returns the title of the original listings', () => {
-            return truePrice.fetchAveragePrice('nintendo switch', verbose, localHtml).then((res) => {
+            return truePrice.fetchAveragePrice(options).then((res) => {
                 const listingsHaveTitles = (listings) => {
                     let res = true;
                     listings.forEach((listing) => {
@@ -70,7 +75,7 @@ describe('truePrice module', () => {
         })
 
         test('returns the listings end date', () => {
-            return truePrice.fetchAveragePrice('nintendo switch', verbose, localHtml).then((res) => {
+            return truePrice.fetchAveragePrice(options).then((res) => {
                 const listingsHaveDates = (listings) => {
                     let res = true;
                     listings.forEach((listing) => {
@@ -81,6 +86,46 @@ describe('truePrice module', () => {
                     return res;
                 }
                 expect(listingsHaveDates(res.listings)).toBe(true)
+            })
+        })
+    })
+
+    describe('filters', () => {
+        // Filters tests
+        describe('when no filters are given', () => {
+            test('applies default filters to the url params', () => {
+                return truePrice.fetchAveragePrice(options).then((res) => {
+                    expect(
+                        res.ebayUrl.includes('LH_Complete=1') && res.ebayUrl.includes('LH_Sold=1')
+                    ).toBe(true)
+                })
+            })
+            test('lists the applied filters correctly', () => {
+                return truePrice.fetchAveragePrice(options).then((res) => {
+                    expect(
+                        res.filters[0] + ''
+                    ).toBe("Show Only,Completed Items,Sold Items")
+                })
+            })
+        })
+
+        describe('when filtering by free returns', () => {
+
+            test('applies the filter to the url', () => {
+                options.filters = {
+                    showOnly: { completed: true, sold: true, freeReturns: true }
+                }
+                return truePrice.fetchAveragePrice(options).then((res) => {
+                    expect(res.ebayUrl.includes('LH_FR=1')).toBe(true)
+                })
+            })
+
+            test('lists the applied filters correctly', () => {
+                return truePrice.fetchAveragePrice(options).then((res) => {
+                    expect(
+                        res.filters[0] + ''
+                    ).toBe("Show Only,Completed Items,Sold Items,Free Returns")
+                })
             })
         })
     })
