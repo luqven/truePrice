@@ -7,6 +7,8 @@ sale price (excluding outliers).
 
 [See it in action 🔗](https://tprice-development.herokuapp.com/)
 
+[![NPM](https://nodei.co/npm/package.png?mini=true)](https://npmjs.org/package/true-price)
+
 ## Dependencies
 
 > Puppeteer, and therefore this package, requires access to the filesystem. It therefore cannot be
