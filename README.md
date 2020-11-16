@@ -7,7 +7,7 @@ sale price (excluding outliers).
 
 [See it in action 🔗](https://tprice-development.herokuapp.com/)
 
-[![NPM](https://nodei.co/npm/package.png?mini=true)](https://npmjs.org/package/true-price)
+[![NPM](https://nodei.co/npm/true-price.png?mini=true)](https://npmjs.org/package/true-price)
 
 ## Dependencies
 
