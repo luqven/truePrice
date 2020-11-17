@@ -1,3 +1,6 @@
+# 0.1.5
+- Fixed bug where `calcAveragePrice()` returned 'n/a' when less than 4 prices found
+
 # 0.1.4
 
 > **Breaking changes**

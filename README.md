@@ -1,6 +1,6 @@
 # true-price
 
-_v0.1.4_
+_v0.1.5_
 
 A tool that scrapes Ebay for item listings and returns a list of matching items and their average
 sale price (excluding outliers).
