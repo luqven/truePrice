@@ -123,7 +123,12 @@ class Scraper {
      * is not an int, then really you should average the two elements on either
      * side to find q1.
      */
-    const q1 = values[Math.floor(values.length / 4)];
+    let q1;
+    if (values.length < 4) {
+      q1 = (values[0] + values[-1]) / 2;
+    } else {
+      q1 = values[Math.floor(values.length / 4)];
+    }
     // Likewise for q3.
     const q3 = values[Math.ceil(values.length * (3 / 4))];
     const iqr = q3 - q1;
